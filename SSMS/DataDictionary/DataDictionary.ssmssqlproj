@@ -3,14 +3,14 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="ukgiocrsdev01.mgmt.computacenter.co.uk:GB\pedavies">
-          <Created>2017-09-05T15:28:16.7195288+01:00</Created>
+        <ConnectionNode Name="HPLAPTOP003:HPLAPTOP003\Developer">
+          <Created>2018-03-31T12:57:08.8391202+01:00</Created>
           <Type>SQL</Type>
-          <Server>ukgiocrsdev01.mgmt.computacenter.co.uk</Server>
+          <Server>HPLAPTOP003</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>GIO_Asset_DBA</InitialDB>
-          <LoginTimeout>15</LoginTimeout>
+          <InitialDB>DBA</InitialDB>
+          <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName />
@@ -20,44 +20,44 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="000_CreateSchema.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>000_CreateSchema.sql</FullPath>
         </FileNode>
         <FileNode Name="001_CreateTables.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>001_CreateTables.sql</FullPath>
         </FileNode>
         <FileNode Name="002_Add Table Column Descriptions.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>002_Add Table Column Descriptions.sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspConstraintsCheckDefault].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspConstraintsCheckDefault].sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspDataDictionary].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspDataDictionary].sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspFindTableTriggers].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspFindTableTriggers].sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspForeignKeys].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspForeignKeys].sql</FullPath>
         </FileNode>
@@ -68,20 +68,20 @@
           <FullPath>003_[SSRS].[uspListAllIndexes] .sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspListAllIndexes].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspListAllIndexes].sql</FullPath>
         </FileNode>
         <FileNode Name="004_Addusp_ColumnTablesDesc.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>004_Addusp_ColumnTablesDesc.sql</FullPath>
         </FileNode>
         <FileNode Name="100_PopulateDataDictionary.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:HPLAPTOP003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>HPLAPTOP003</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>100_PopulateDataDictionary.sql</FullPath>
         </FileNode>
@@ -92,8 +92,8 @@
           <FullPath>SQLQuery1.sql</FullPath>
         </FileNode>
         <FileNode Name="SQLQuery2.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>SQLQuery2.sql</FullPath>
         </FileNode>

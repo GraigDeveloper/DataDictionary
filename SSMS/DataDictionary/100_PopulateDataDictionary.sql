@@ -1,4 +1,4 @@
-USE  gio_asset_dba
+USE  DBA
 go
 Declare @DatabaseName varchar(128)
 
@@ -6,7 +6,7 @@ SELECT @DatabaseName = DB_Name()
 
 DELETE 
 FROM 
-	GIO_Asset_DBA.DBA.DataDictionary
+	DBA.DBA.DataDictionary
 WHERE
 	DatabaseName = @DatabaseName
 
@@ -33,7 +33,7 @@ WHERE
 --All stores many column properties
 
 INSERT INTO
-     GIO_Asset_DBA.DBA.DataDictionary(
+     DBA.DBA.DataDictionary(
 	 [DatabaseName],
      [TABLE_SCHEMA]
     ,[TABLE_NAME]
@@ -101,11 +101,11 @@ WHERE
     AND Constraint_Type = 'PRIMARY KEY'
 )
 UPDATE
-      GIO_Asset_DBA.DBA.DataDictionary
+      DBA.DBA.DataDictionary
 SET 
       IsPrimaryKey = 1
 FROM
-      GIO_Asset_DBA.DBA.DataDictionary DD
+      DBA.DBA.DataDictionary DD
       INNER JOIN PrimaryKeys PK
       ON PK.TABLE_SCHEMA = DD.TABLE_SCHEMA
       AND PK.TABLE_NAME = DD.TABLE_NAME
@@ -129,19 +129,19 @@ FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS RC
 JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE KF ON RC.CONSTRAINT_NAME = KF.CONSTRAINT_NAME
 JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE KP ON RC.UNIQUE_CONSTRAINT_NAME = KP.CONSTRAINT_NAME)
 UPDATE
-      GIO_Asset_DBA.DBA.DataDictionary
+      DBA.DBA.DataDictionary
 SET 
       IsForeignKey = 1
 FROM
-      GIO_Asset_DBA.DBA.DataDictionary DD
+      DBA.DBA.DataDictionary DD
       INNER JOIN ForeignKeys FK
             ON FK_Schema = DD.TABLE_SCHEMA
             AND FK.FK_Table = DD.TABLE_NAME
             AND FK.FK_Column = DD.COLUMN_NAME
             
 --Table And Column descriptions are held in tables
---    GIO_Asset_DBA.DBA.DataDictionaryTableDesc
---    GIO_Asset_DBA.DBA.DataDictionaryColumnDesc
+--    DBA.DBA.DataDictionaryTableDesc
+--    DBA.DBA.DataDictionaryColumnDesc
 --
 --The decriptions are entered into these tables manually or by script
 --
@@ -149,9 +149,9 @@ FROM
 --is controlled by the script below.
 
 --Table Descriptions
---Add new Records to GIO_Asset_DBA.DBA.DataDictionaryTableDesc
+--Add new Records to DBA.DBA.DataDictionaryTableDesc
 INSERT INTO
-      GIO_Asset_DBA.DBA.DataDictionaryTableDesc
+      DBA.DBA.DataDictionaryTableDesc
       (DatabaseName,
 	  TABLE_SCHEMA,
       TABLE_NAME)
@@ -160,8 +160,8 @@ SELECT
       DD.TABLE_SCHEMA,
       DD.TABLE_NAME
 FROM
-      GIO_Asset_DBA.DBA.DataDictionary      DD
-      LEFT JOIN GIO_Asset_DBA.DBA.DataDictionaryTableDesc DDTD
+      DBA.DBA.DataDictionary      DD
+      LEFT JOIN DBA.DBA.DataDictionaryTableDesc DDTD
             ON DD.DatabaseName = DDTD.DatabaseName
 				AND DD.TABLE_SCHEMA = DDTD.TABLE_SCHEMA
 				AND DD.TABLE_NAME = DDTD.TABLE_NAME
@@ -174,34 +174,34 @@ GROUP BY
     DD.TABLE_SCHEMA,
     DD.TABLE_NAME
       
---Update GIO_Asset_DBA.DBA.DataDictionaryTableDesc and set [ObjectType] to View
+--Update DBA.DBA.DataDictionaryTableDesc and set [ObjectType] to View
 --Default value for [ObjectType]  is Table
 
-UPDATE GIO_Asset_DBA.DBA.DataDictionaryTableDesc
+UPDATE DBA.DBA.DataDictionaryTableDesc
 SET [ObjectType] ='View'
-FROM GIO_Asset_DBA.DBA.DataDictionaryTableDesc DDTD
+FROM DBA.DBA.DataDictionaryTableDesc DDTD
 INNER JOIN INFORMATION_SCHEMA.VIEWS V
       ON  DDTD.TABLE_SCHEMA = V.TABLE_SCHEMA
             AND DDTD.TABLE_NAME =V.TABLE_NAME
 WHERE
 	DDTD.DatabaseName = @DatabaseName
---Update GIO_Asset_DBA.DBA.DataDictionaryColumnDesc and set [ObjectType] to View
+--Update DBA.DBA.DataDictionaryColumnDesc and set [ObjectType] to View
 --Default value for [ObjectType]  is Table
 
-UPDATE GIO_Asset_DBA.DBA.DataDictionaryColumnDesc
+UPDATE DBA.DBA.DataDictionaryColumnDesc
 SET [ObjectType] ='View'
-FROM GIO_Asset_DBA.DBA.DataDictionaryColumnDesc DDCD
+FROM DBA.DBA.DataDictionaryColumnDesc DDCD
 INNER JOIN INFORMATION_SCHEMA.VIEWS V
       ON	DDCD.TABLE_SCHEMA = V.TABLE_SCHEMA
             AND DDCD.TABLE_NAME =V.TABLE_NAME
 WHERE
 	DDCD.DatabaseName = @DatabaseName
---Remove old Records from GIO_Asset_DBA.DBA.DataDictionaryTableDesc
+--Remove old Records from DBA.DBA.DataDictionaryTableDesc
 DELETE 
-      GIO_Asset_DBA.DBA.DataDictionaryTableDesc
+      DBA.DBA.DataDictionaryTableDesc
 FROM
-      GIO_Asset_DBA.DBA.DataDictionaryTableDesc DDTD
-      LEFT JOIN GIO_Asset_DBA.DBA.DataDictionary DD
+      DBA.DBA.DataDictionaryTableDesc DDTD
+      LEFT JOIN DBA.DBA.DataDictionary DD
             ON DDTD.DatabaseName= DD.DatabaseName
 			AND DDTD.TABLE_SCHEMA = DD.TABLE_SCHEMA
             AND DDTD.TABLE_NAME = DD.TABLE_NAME
@@ -211,9 +211,9 @@ WHERE
       AND DD.TABLE_NAME IS NULL
       
 --  Descriptions
---Add new Records to GIO_Asset_DBA.DBA.DataDictionaryColumnDesc
+--Add new Records to DBA.DBA.DataDictionaryColumnDesc
 INSERT INTO
-      GIO_Asset_DBA.DBA.DataDictionaryColumnDesc
+      DBA.DBA.DataDictionaryColumnDesc
       (DatabaseName,
 	  TABLE_SCHEMA,
       TABLE_NAME,
@@ -224,8 +224,8 @@ SELECT
       DD.TABLE_NAME,
       dd.COLUMN_NAME
 FROM
-      GIO_Asset_DBA.DBA.DataDictionary      DD
-      LEFT JOIN GIO_Asset_DBA.DBA.DataDictionaryColumnDesc DDCD
+      DBA.DBA.DataDictionary      DD
+      LEFT JOIN DBA.DBA.DataDictionaryColumnDesc DDCD
             ON DD.DatabaseName = DDCD.DatabaseName
 			AND DD.TABLE_SCHEMA = DDCD.TABLE_SCHEMA
             AND DD.TABLE_NAME = DDCD.TABLE_NAME
@@ -236,12 +236,12 @@ WHERE
       AND DDCD.TABLE_NAME IS NULL
       AND DDCD.COLUMN_NAME IS NULL
       
---Remove old Records from GIO_Asset_DBA.DBA.DataDictionaryColumnDesc
+--Remove old Records from DBA.DBA.DataDictionaryColumnDesc
 DELETE 
-      GIO_Asset_DBA.DBA.DataDictionaryColumnDesc
+      DBA.DBA.DataDictionaryColumnDesc
 FROM
-      GIO_Asset_DBA.DBA.DataDictionaryColumnDesc DDCD
-      LEFT JOIN GIO_Asset_DBA.DBA.DataDictionary DD
+      DBA.DBA.DataDictionaryColumnDesc DDCD
+      LEFT JOIN DBA.DBA.DataDictionary DD
             ON DDCD.TABLE_SCHEMA = DD.TABLE_SCHEMA
             AND DDCD.TABLE_NAME = DD.TABLE_NAME
             AND DDCD.COLUMN_NAME = DD.COLUMN_NAME
@@ -272,19 +272,19 @@ RowCounts = p.Rows
         s.Name, t.Name, p.Rows
 )
 UPDATE
-      GIO_Asset_DBA.DBA.DataDictionaryTableDesc
+      DBA.DBA.DataDictionaryTableDesc
 SET
       TableRowCount = CRT.Row_Counts
 FROM 
       CountRowsInTables CRT
-      INNER JOIN GIO_Asset_DBA.DBA.DataDictionaryTableDesc DDTD
+      INNER JOIN DBA.DBA.DataDictionaryTableDesc DDTD
       ON CRT.Table_Schema = DDTD.TABLE_SCHEMA
       AND CRT.Table_Name = DDTD.TABLE_NAME
 
 ---------------CREATE FOREIGN KEYS
 
 ----[FK_DataDictionary_DataDictionaryTableDesc]
---ALTER TABLE GIO_Asset_DBA.DBA.DataDictionary  
+--ALTER TABLE DBA.DBA.DataDictionary  
 --      WITH CHECK ADD  CONSTRAINT [FK_DataDictionary_DataDictionaryTableDesc] 
 --      FOREIGN KEY([TABLE_SCHEMA] ,
 --                        [TABLE_NAME])
@@ -295,7 +295,7 @@ FROM
 --ALTER TABLE [DBA].[DataDictionary] 
 --  CHECK CONSTRAINT [FK_DataDictionary_DataDictionaryTableDesc]
 
---ALTER TABLE GIO_Asset_DBA.DBA.DataDictionary  
+--ALTER TABLE DBA.DBA.DataDictionary  
 --      WITH CHECK ADD  CONSTRAINT [FK_DataDictionary_DataDictionaryColumnDesc] 
 --      FOREIGN KEY([TABLE_SCHEMA] ,
 --                        [TABLE_NAME],
@@ -309,7 +309,7 @@ FROM
 
       
 --Result Set for Report
-USE GIO_ASSET_DBA
+USE DBA
 
 SELECT
       *

@@ -1,4 +1,4 @@
-USE GIO_Asset_DBA
+USE DBA
 
 GO
 
