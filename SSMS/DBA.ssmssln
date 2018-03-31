@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# SQL Server Management Studio Solution File, Format Version 12.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DBA", "DBA\DBA.ssmssqlproj", "{C8F1B151-EC63-4542-A90A-EE3370DF08B1}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DataDictionary", "DataDictionary\DataDictionary.ssmssqlproj", "{F7925849-5074-4EC7-BED8-E6B547191B06}"
+EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "GIo_Server", "GIo_Server\GIo_Server.ssmssqlproj", "{E48B28CD-08AD-44B2-805B-EC9A3F7E844D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8F1B151-EC63-4542-A90A-EE3370DF08B1}.Default|Default.ActiveCfg = Default
+		{F7925849-5074-4EC7-BED8-E6B547191B06}.Default|Default.ActiveCfg = Default
+		{86F5A81E-47B0-4A74-A161-064308BCB771}.Default|Default.ActiveCfg = Default
+		{E48B28CD-08AD-44B2-805B-EC9A3F7E844D}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <Height>276mm</Height>
+    <Style>
+      <Border>
+        <Style>Solid</Style>
+      </Border>
+    </Style>
+  </Body>
+  <Width>175mm</Width>
+  <Page>
+    <PageHeight>297mm</PageHeight>
+    <PageWidth>210mm</PageWidth>
+    <LeftMargin>25mm</LeftMargin>
+    <RightMargin>10mm</RightMargin>
+    <TopMargin>10mm</TopMargin>
+    <BottomMargin>10mm</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>684f6850-e265-450d-b3d9-77d00747517d</rd:ReportID>
+</Report>

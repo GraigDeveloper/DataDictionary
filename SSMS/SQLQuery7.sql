@@ -1,0 +1,1 @@
+exec [SSIS].[AssetFilesRequired] @CustomerShortName = 'DEV'
