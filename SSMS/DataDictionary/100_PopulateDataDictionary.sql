@@ -1,4 +1,4 @@
-USE  DBA
+USE  [AdventureWorks2016CTP3]
 go
 Declare @DatabaseName varchar(128)
 

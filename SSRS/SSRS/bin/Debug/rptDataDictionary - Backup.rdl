@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataDictionary">
@@ -881,7 +881,7 @@ Fields!IsKeyColumn.Value=false,"White")</BackgroundColor>
             <Height>2.49782in</Height>
             <Width>9.70417in</Width>
             <Style />
-            <cl:ComponentMetadata>
+            <cl:ComponentMetadata xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition">
               <cl:ComponentId>de04b89d-4690-498a-9799-b02b7cc260fa</cl:ComponentId>
               <cl:SourcePath>/Report Parts/GroupLevel0</cl:SourcePath>
               <cl:SyncDate>2014-08-16T16:34:16.7210531+01:00</cl:SyncDate>

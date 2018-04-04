@@ -1,4 +1,4 @@
-GO
+USE DBA
 
 /****** Object:  StoredProcedure [PQRD].[uspConstraintsCheckDefault]    Script Date: 05/14/2015 12:48:20 ******/
 IF  EXISTS (SELECT * FROM sys.objects 
