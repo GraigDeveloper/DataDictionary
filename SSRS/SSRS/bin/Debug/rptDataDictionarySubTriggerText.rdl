@@ -13,32 +13,30 @@
       <Query>
         <DataSourceName>HA</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="TableName">
-            <Value>=Parameters!TableName.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="SchemaName">
-            <Value>=Parameters!SchemaName.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
-          </QueryParameter>
-          <QueryParameter Name="DatabaseName">
+          <QueryParameter Name="@DatabaseName">
             <Value>=Parameters!DatabaseName.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+          <QueryParameter Name="@TABLE_SCHEMA">
+            <Value>=Parameters!TABLE_SCHEMA.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@TABLE_NAME">
+            <Value>=Parameters!TABLE_NAME.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>SSRS.uspFindTableTriggers</CommandText>
+        <CommandText>SSRS.uspListTableTriggers</CommandText>
       </Query>
       <Fields>
-        <Field Name="SSRSOrder">
-          <DataField>SSRSOrder</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="SchemaName">
-          <DataField>SchemaName</DataField>
+        <Field Name="DatabaseName">
+          <DataField>DatabaseName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TableName">
-          <DataField>TableName</DataField>
+        <Field Name="Table_Schema">
+          <DataField>Table_Schema</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Table_Name">
+          <DataField>Table_Name</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TriggerText">
@@ -49,8 +47,8 @@
           <DataField>TriggerName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TriggerCreatedDate">
-          <DataField>TriggerCreatedDate</DataField>
+        <Field Name="TriggerCreateDate">
+          <DataField>TriggerCreateDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
@@ -149,14 +147,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="TableName">
+                        <Textbox Name="Table_Name">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!TableName.Value</Value>
+                                  <Value>=Fields!Table_Name.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -165,7 +163,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>TableName</rd:DefaultName>
+                          <rd:DefaultName>Table_Name</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -251,7 +249,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Triggers for Table..." &amp; "[" &amp; Parameters!SchemaName.Value &amp; "].[" &amp; Parameters!TableName.Value &amp; "]"</Value>
+                    <Value>="Triggers for Table..." &amp; "[" &amp; Parameters!TABLE_SCHEMA.Value &amp; "].[" &amp; Parameters!TABLE_NAME.Value &amp; "]"</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontSize>14pt</FontSize>
@@ -299,38 +297,38 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="SchemaName">
-      <DataType>String</DataType>
-      <Prompt>Schema Name</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="TableName">
-      <DataType>String</DataType>
-      <Prompt>Table Name</Prompt>
-    </ReportParameter>
     <ReportParameter Name="DatabaseName">
       <DataType>String</DataType>
       <Prompt>Database Name</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TABLE_SCHEMA">
+      <DataType>String</DataType>
+      <Prompt>TABLE SCHEMA</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TABLE_NAME">
+      <DataType>String</DataType>
+      <Prompt>TABLE NAME</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
+      <NumberOfRows>3</NumberOfRows>
       <CellDefinitions>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>SchemaName</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>TableName</ParameterName>
-        </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>DatabaseName</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>TABLE_SCHEMA</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>TABLE_NAME</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -349,14 +347,6 @@ sUxa9c6ctN6lOxtMSEpVI2uFCHVbyFhZHkBs+AonjNMtwaevacPt26cIYDgS62hfcA9FAEfaDt4Pt7Vl
 afGjrs9erBHmSkpS8SpCyjoopJGceWcdKKK9N+dcLXrdF+z5smTlRD21RIdj2V0MLU24+41FS6k/c13riW949078j4qsyLUYi77ZWZJ+mTGi3JoFsANqQogt4GBsUI6MjjxK9axRXMG+eGnNSPajk3KQW1MMqtyyGVKSvarg5CtoOMLxj2z51H6W1M3ddMXO3Nw32S1ZVrLjs1b2dre3hKvD18qxRQFkYifQayt8Vhe2JLgypAaAx3Tm5neUn0UVbsY4VuOfu40dGXZa7hD0uIzG2xtKbMpadynQ0nugUj/DUd2Scq4yPPIKKAnLLb4sfVF6daaCVDYU8khBcG5zaOidykhSsYyRk5NWKiigCiiigCiiigCiiigP/9k=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <Variables>
-    <Variable Name="DataBaseName">
-      <Value>=Parameters!DatabaseName.Value</Value>
-    </Variable>
-    <Variable Name="TableName">
-      <Value>=Parameters!TableName.Value</Value>
-    </Variable>
-  </Variables>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>684f6850-e265-450d-b3d9-77d00747517d</rd:ReportID>
 </Report>

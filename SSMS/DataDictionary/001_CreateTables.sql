@@ -34,7 +34,9 @@ IF  EXISTS (SELECT * FROM sys.objects
 WHERE object_id = OBJECT_ID(N'[DBA].[DataDictionaryColumnDesc]') AND type in (N'U'))
 
       DROP TABLE [DBA].[DataDictionaryColumnDesc]
-      
+ 
+DROP TABLE IF EXISTS [SSRS].[TableTriggers]
+
 /****** Object:  Table DBA.DataDictionary    Script Date: 07/09/2015 13:23:37 ******/
 SET ANSI_NULLS ON
 GO
@@ -93,6 +95,7 @@ CREATE TABLE [DBA].[DataDictionaryTableDesc](
       [TableDescription] [varchar](1000) NULL,  
       [TableRowCount] [BIGINT],
       [TableActive] [bit] Default(1) NOT NULL,
+	  [HasTriggers] [bit] Default(0) NOT NULL
 CONSTRAINT [PK_DataDictionaryTableDesc] PRIMARY KEY CLUSTERED 
 (
 	  [DatabaseName] ASC,
@@ -118,4 +121,21 @@ CONSTRAINT [PK_DataDictionaryColumnDesc] PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, 
 IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
+--[SSRS].[TableTriggers]
+CREATE TABLE [SSRS].[TableTriggers](
+	[DatabaseName] [varchar](128) NOT NULL,
+	[TABLE_SCHEMA] [varchar](128) NOT NULL,
+	[TABLE_NAME] [varchar](128) NOT NULL,
+	[TriggerName] [varchar](128) NOT NULL,
+	[TriggerCreateDate] [datetime] NOT NULL,
+	[TriggerText] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_DataDictionary] PRIMARY KEY CLUSTERED 
+(
+	[DatabaseName] ASC,
+	[TABLE_SCHEMA] ASC,
+	[TABLE_NAME] ASC,
+	[TriggerName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 

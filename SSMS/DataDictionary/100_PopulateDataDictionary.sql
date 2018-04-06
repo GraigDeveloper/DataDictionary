@@ -10,6 +10,12 @@ FROM
 WHERE
 	DatabaseName = @DatabaseName
 
+DELETE 
+FROM 
+	DBA.SSRS.TableTriggers
+WHERE
+	DatabaseName = @DatabaseName
+
 ----------------DROP FOREIGN KEYS
 
 --[FK_DataDictionary_DataDictionaryTableDesc]
@@ -196,6 +202,7 @@ INNER JOIN INFORMATION_SCHEMA.VIEWS V
             AND DDCD.TABLE_NAME =V.TABLE_NAME
 WHERE
 	DDCD.DatabaseName = @DatabaseName
+
 --Remove old Records from DBA.DBA.DataDictionaryTableDesc
 DELETE 
       DBA.DBA.DataDictionaryTableDesc
@@ -281,6 +288,53 @@ FROM
       ON CRT.Table_Schema = DDTD.TABLE_SCHEMA
       AND CRT.Table_Name = DDTD.TABLE_NAME
 
+
+--Populate Trigger Text Info
+INSERT INTO DBA.[SSRS].[TableTriggers]
+	([DatabaseName],
+	TABLE_SCHEMA,
+	TABLE_NAME,
+	TriggerName,
+	TriggerCreateDate,
+	TriggerText)
+SELECT
+		DB_NAME(),
+		object_schema_name(Triggers.parent_obj) SchemaName,
+		Tables.Name TableName,
+		Triggers.name TriggerName,
+		Triggers.crdate TriggerCreatedDate,
+		Comments.Text TriggerText
+	 FROM
+			sysobjects Triggers
+			Inner Join sysobjects Tables 
+				On Triggers.parent_obj = Tables.id
+			Inner Join syscomments Comments 
+				On Triggers.id = Comments.id
+	 WHERE
+			Triggers.xtype = 'TR'
+			And Tables.xtype = 'U'
+--First reset flag for tables that have triggers
+UPDATE
+	DBA.[DBA].[DataDictionaryTableDesc]
+SET
+	HasTriggers = 0
+WHERE
+	DatabaseName = @DatabaseName
+
+--Update Flag for Tables whick have triggers
+UPDATE
+	DBA.[DBA].[DataDictionaryTableDesc]
+SET
+	HasTriggers = 1
+FROM
+	DBA.DBA.DataDictionaryTableDesc DDTD
+	INNER JOIN DBA.SSRS.TableTriggers TT
+		ON DDTD.DatabaseName = TT.DatabaseName
+		AND DDTD.TABLE_SCHEMA = TT.TABLE_SCHEMA 
+		AND DDTD.TABLE_NAME= TT.TABLE_NAME
+WHERE
+	DDTD.DatabaseName = @DatabaseName
+
 ---------------CREATE FOREIGN KEYS
 
 ----[FK_DataDictionary_DataDictionaryTableDesc]
@@ -308,16 +362,12 @@ FROM
 -- CHECK CONSTRAINT [FK_DataDictionary_DataDictionaryColumnDesc] 
 
       
---Result Set for Report
-USE DBA
-
 SELECT
       *
 FROM
-      [dba].[DataDictionary]
+     DBA.[dba].[DataDictionary]
 	WHERE
 	DatabaseName = @DatabaseName
-	
 ORDER BY
     [TABLE_SCHEMA],
     [TABLE_NAME],
