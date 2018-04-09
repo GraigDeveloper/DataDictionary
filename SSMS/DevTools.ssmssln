@@ -7,6 +7,11 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DBA", "DBA\DBA.ssmssqlproj"
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "DataDictionary", "DataDictionary\DataDictionary.ssmssqlproj", "{F7925849-5074-4EC7-BED8-E6B547191B06}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{936C27DD-841F-433C-8837-6F1C6681468E}"
+	ProjectSection(SolutionItems) = preProject
+		DataDictionary\003_[SSRS].[uspFindTableTriggers].sql = DataDictionary\003_[SSRS].[uspFindTableTriggers].sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
@@ -14,7 +19,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C8F1B151-EC63-4542-A90A-EE3370DF08B1}.Default|Default.ActiveCfg = Default
 		{F7925849-5074-4EC7-BED8-E6B547191B06}.Default|Default.ActiveCfg = Default
-		{91BD7991-F201-4899-AD99-1C2E6599383C}.Default|Default.ActiveCfg = Default
+		{B467D226-6930-4526-B423-64813FF0E6A6}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

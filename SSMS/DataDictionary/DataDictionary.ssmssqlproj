@@ -37,12 +37,6 @@
           <AssociatedConnUserName />
           <FullPath>002_Add Table Column Descriptions.sql</FullPath>
         </FileNode>
-        <FileNode Name="003_[SSRS].[uspConstraintsCheckDefault].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
-          <AssociatedConnUserName />
-          <FullPath>003_[SSRS].[uspConstraintsCheckDefault].sql</FullPath>
-        </FileNode>
         <FileNode Name="003_[SSRS].[uspDataDictionary].sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
@@ -60,6 +54,12 @@
           <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspListAllIndexes].sql</FullPath>
+        </FileNode>
+        <FileNode Name="003_[SSRS].[uspListConstraintsCheckDefault].sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>003_[SSRS].[uspListConstraintsCheckDefault].sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspListTableTriggers].sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
