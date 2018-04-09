@@ -28,8 +28,8 @@ AS
 		DBA.SSRS.TableTriggers
 	WHERE
 		DatabaseName =@DatabaseName
-	AND [Table_Schema] = @Table_Schema 
-	AND [Table_Name]= @Table_Name 
+		AND [Table_Schema] = @Table_Schema 
+		AND [Table_Name]= @Table_Name 
 
 	
 	END

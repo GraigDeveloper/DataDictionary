@@ -37,6 +37,8 @@ WHERE object_id = OBJECT_ID(N'[DBA].[DataDictionaryColumnDesc]') AND type in (N'
  
 DROP TABLE IF EXISTS [SSRS].[TableTriggers]
 
+DROP TABLE IF EXISTS [SSRS].[CheckConstraints]
+
 /****** Object:  Table DBA.DataDictionary    Script Date: 07/09/2015 13:23:37 ******/
 SET ANSI_NULLS ON
 GO
@@ -95,7 +97,8 @@ CREATE TABLE [DBA].[DataDictionaryTableDesc](
       [TableDescription] [varchar](1000) NULL,  
       [TableRowCount] [BIGINT],
       [TableActive] [bit] Default(1) NOT NULL,
-	  [HasTriggers] [bit] Default(0) NOT NULL
+	  [HasTriggers] [bit] Default(0) NOT NULL,
+	  [HasCheckConstraints] [bit] Default(0) NOT NULL
 CONSTRAINT [PK_DataDictionaryTableDesc] PRIMARY KEY CLUSTERED 
 (
 	  [DatabaseName] ASC,
@@ -130,12 +133,31 @@ CREATE TABLE [SSRS].[TableTriggers](
 	[TriggerName] [varchar](128) NOT NULL,
 	[TriggerCreateDate] [datetime] NOT NULL,
 	[TriggerText] [varchar](max) NOT NULL,
- CONSTRAINT [PK_DataDictionary] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_SSRS_TableTriggers] PRIMARY KEY CLUSTERED 
 (
 	[DatabaseName] ASC,
 	[TABLE_SCHEMA] ASC,
 	[TABLE_NAME] ASC,
 	[TriggerName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+--[SSRS].[CheckConstraints]
+CREATE TABLE [SSRS].[CheckConstraints](
+	[DatabaseName] [varchar](128) NOT NULL,
+	[TABLE_SCHEMA] [varchar](128) NOT NULL,
+	[TABLE_NAME] [varchar](128) NOT NULL,
+	[COLUMN_NAME] [varchar](128) NOT NULL,
+	[ConstraintName] nvarchar(128) NOT NULL,
+	[DefaultValue] nvarchar(max) NULL,
+	[CheckValue] [varchar](max) NULL,
+ CONSTRAINT [PK_SSRS_CheckConstraints] PRIMARY KEY CLUSTERED 
+(
+	[DatabaseName] ASC,
+	[TABLE_SCHEMA] ASC,
+	[TABLE_NAME] ASC,
+	[COLUMN_NAME] ASC,
+	[ConstraintName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 

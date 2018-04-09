@@ -157,6 +157,10 @@
           <DataField>HasTriggers</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="HasCheckConstraints">
+          <DataField>HasCheckConstraints</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="DataBaseNames">
@@ -185,7 +189,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>2.54991in</Height>
+                  <Height>2.56657in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -199,7 +203,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>TABLE NAME</Value>
+                                          <Value>Open Subreports</Value>
                                           <Style>
                                             <FontStyle>Italic</FontStyle>
                                             <FontFamily>Times New Roman</FontFamily>
@@ -216,10 +220,10 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>0.393in</Top>
-                                  <Left>0.03708cm</Left>
+                                  <Top>0.40966in</Top>
+                                  <Left>0.04811cm</Left>
                                   <Height>0.25in</Height>
-                                  <Width>1.3333in</Width>
+                                  <Width>1.42358in</Width>
                                   <Style>
                                     <Border>
                                       <Color>#000000</Color>
@@ -228,8 +232,8 @@
                                   </Style>
                                 </Textbox>
                                 <Line Name="Line32">
-                                  <Top>0.668in</Top>
-                                  <Left>0.03708cm</Left>
+                                  <Top>0.68466in</Top>
+                                  <Left>0.04811cm</Left>
                                   <Height>0in</Height>
                                   <Width>13.5916in</Width>
                                   <ZIndex>1</ZIndex>
@@ -247,7 +251,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>="[" &amp; Fields!TABLE_SCHEMA.Value &amp; "].[" &amp; Fields!TABLE_NAME.Value &amp; "]..."  &amp;  Fields!TableDescription.Value</Value>
+                                          <Value>="[" &amp; Fields!TABLE_SCHEMA.Value &amp; "].[" &amp; Fields!TABLE_NAME.Value &amp; "]..."  &amp;  Fields!TableDescription.Value &amp; "... Row Count(" &amp; Fields!TableRowCount.Value &amp; ")"</Value>
                                           <Style>
                                             <FontStyle>Italic</FontStyle>
                                             <FontSize>14pt</FontSize>
@@ -263,8 +267,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>0.73744in</Top>
-                                  <Left>0.03708cm</Left>
+                                  <Top>0.7541in</Top>
+                                  <Left>0.04811cm</Left>
                                   <Height>0.2604in</Height>
                                   <Width>13.577in</Width>
                                   <ZIndex>2</ZIndex>
@@ -299,8 +303,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.07639in</Top>
-                                  <Left>2.1646in</Left>
+                                  <Top>1.09305in</Top>
+                                  <Left>2.16894in</Left>
                                   <Height>0.2083in</Height>
                                   <Width>1.68668in</Width>
                                   <ZIndex>3</ZIndex>
@@ -335,8 +339,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.08477in</Top>
-                                  <Left>10.28481in</Left>
+                                  <Top>1.10143in</Top>
+                                  <Left>10.28915in</Left>
                                   <Height>0.2083in</Height>
                                   <Width>0.9104in</Width>
                                   <ZIndex>4</ZIndex>
@@ -371,8 +375,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.08477in</Top>
-                                  <Left>11.32991in</Left>
+                                  <Top>1.10143in</Top>
+                                  <Left>11.33425in</Left>
                                   <Height>0.2083in</Height>
                                   <Width>0.6458in</Width>
                                   <ZIndex>5</ZIndex>
@@ -407,8 +411,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.08477in</Top>
-                                  <Left>12.01741in</Left>
+                                  <Top>1.10143in</Top>
+                                  <Left>12.02175in</Left>
                                   <Height>0.2083in</Height>
                                   <Width>0.9104in</Width>
                                   <ZIndex>6</ZIndex>
@@ -443,8 +447,8 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.08477in</Top>
-                                  <Left>12.99591in</Left>
+                                  <Top>1.10143in</Top>
+                                  <Left>13.00025in</Left>
                                   <Height>0.2083in</Height>
                                   <Width>0.6041in</Width>
                                   <ZIndex>7</ZIndex>
@@ -457,8 +461,8 @@
                                   </Style>
                                 </Textbox>
                                 <Line Name="Line40">
-                                  <Top>1.0625in</Top>
-                                  <Left>0cm</Left>
+                                  <Top>1.07916in</Top>
+                                  <Left>0.01103cm</Left>
                                   <Height>0in</Height>
                                   <Width>13.6062in</Width>
                                   <ZIndex>8</ZIndex>
@@ -493,47 +497,11 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <Top>1.07639in</Top>
-                                  <Left>0.03708cm</Left>
+                                  <Top>1.09305in</Top>
+                                  <Left>0.04811cm</Left>
                                   <Height>0.2083in</Height>
                                   <Width>2.12222in</Width>
                                   <ZIndex>9</ZIndex>
-                                  <Style>
-                                    <Border>
-                                      <Color>#000000</Color>
-                                    </Border>
-                                    <BackgroundColor>#808080</BackgroundColor>
-                                    <Direction>LTR</Direction>
-                                  </Style>
-                                </Textbox>
-                                <Textbox Name="DatabaseName">
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>="Data Dictionary for SQL Server Database" + Parameters!DatabaseName.Value</Value>
-                                          <Style>
-                                            <FontStyle>Italic</FontStyle>
-                                            <FontFamily>Times New Roman</FontFamily>
-                                            <FontSize>20pt</FontSize>
-                                            <FontWeight>Bold</FontWeight>
-                                            <TextDecoration>None</TextDecoration>
-                                            <Color>#ffffff</Color>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style>
-                                        <TextAlign>Left</TextAlign>
-                                        <LineHeight>26pt</LineHeight>
-                                      </Style>
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <Top>0.06353cm</Top>
-                                  <Left>0.0075in</Left>
-                                  <Height>0.3541in</Height>
-                                  <Width>13.59594in</Width>
-                                  <ZIndex>10</ZIndex>
                                   <Style>
                                     <Border>
                                       <Color>#000000</Color>
@@ -557,11 +525,11 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <rd:DefaultName>Textbox1</rd:DefaultName>
-                                  <Top>0.23495cm</Top>
-                                  <Left>16.9937cm</Left>
+                                  <Top>0.27726cm</Top>
+                                  <Left>17.00473cm</Left>
                                   <Height>0.6cm</Height>
                                   <Width>2.5cm</Width>
-                                  <ZIndex>11</ZIndex>
+                                  <ZIndex>10</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -572,14 +540,49 @@
                                     <PaddingBottom>2pt</PaddingBottom>
                                   </Style>
                                 </Textbox>
-                                <Textbox Name="DatabaseName1">
+                                <Textbox Name="DatabaseName">
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>="Data Dictionary for SQL Server Database..." + Parameters!DatabaseName.Value</Value>
+                                          <Style>
+                                            <FontStyle>Italic</FontStyle>
+                                            <FontFamily>Times New Roman</FontFamily>
+                                            <FontSize>20pt</FontSize>
+                                            <FontWeight>Bold</FontWeight>
+                                            <TextDecoration>None</TextDecoration>
+                                            <Color>#ffffff</Color>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Left</TextAlign>
+                                        <LineHeight>26pt</LineHeight>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <Top>0.03528cm</Top>
+                                  <Height>0.3541in</Height>
+                                  <Width>13.59594in</Width>
+                                  <ZIndex>11</ZIndex>
+                                  <Style>
+                                    <Border>
+                                      <Color>#000000</Color>
+                                    </Border>
+                                    <BackgroundColor>#808080</BackgroundColor>
+                                    <Direction>LTR</Direction>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="HasTriggers22">
                                   <CanGrow>true</CanGrow>
                                   <KeepTogether>true</KeepTogether>
                                   <Paragraphs>
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=First(Fields!DatabaseName.Value)</Value>
+                                          <Value>=IIf(Fields!HasTriggers.Value=True,"Has Triggers","No Triggers")</Value>
                                           <Style>
                                             <FontWeight>Bold</FontWeight>
                                             <Color>Yellow</Color>
@@ -591,7 +594,6 @@
                                       </Style>
                                     </Paragraph>
                                   </Paragraphs>
-                                  <rd:DefaultName>DatabaseName1</rd:DefaultName>
                                   <ActionInfo>
                                     <Actions>
                                       <Action>
@@ -612,13 +614,71 @@
                                       </Action>
                                     </Actions>
                                   </ActionInfo>
-                                  <Top>0.99822cm</Top>
-                                  <Left>3.92614cm</Left>
+                                  <Top>1.0758cm</Top>
+                                  <Left>3.80511cm</Left>
                                   <Height>0.6cm</Height>
-                                  <Width>3.77cm</Width>
+                                  <Width>3.24083cm</Width>
                                   <ZIndex>12</ZIndex>
                                   <Visibility>
-                                    <Hidden>= Fields!HasTriggers.Value = False</Hidden>
+                                    <Hidden>=First(Fields!HasTriggers.Value)=False</Hidden>
+                                  </Visibility>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <BackgroundColor>Red</BackgroundColor>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="HasColumnConstraints">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=IIf(Fields!HasCheckConstraints.Value, "Has Check Constraints", "No Constraints")</Value>
+                                          <Style>
+                                            <FontWeight>Bold</FontWeight>
+                                            <Color>Yellow</Color>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Center</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <ActionInfo>
+                                    <Actions>
+                                      <Action>
+                                        <Drillthrough>
+                                          <ReportName>rptDataDictionaryColCons</ReportName>
+                                          <Parameters>
+                                            <Parameter Name="DatabaseName">
+                                              <Value>=Fields!DatabaseName.Value</Value>
+                                            </Parameter>
+                                            <Parameter Name="TABLE_SCHEMA">
+                                              <Value>=Fields!TABLE_SCHEMA.Value</Value>
+                                            </Parameter>
+                                            <Parameter Name="TABLE_NAME">
+                                              <Value>=Fields!TABLE_NAME.Value</Value>
+                                            </Parameter>
+                                          </Parameters>
+                                        </Drillthrough>
+                                      </Action>
+                                    </Actions>
+                                  </ActionInfo>
+                                  <Top>1.07581cm</Top>
+                                  <Left>7.51581cm</Left>
+                                  <Height>0.6cm</Height>
+                                  <Width>3.24083cm</Width>
+                                  <ZIndex>13</ZIndex>
+                                  <Visibility>
+                                    <Hidden>=First(Fields!HasTriggers.Value) = False</Hidden>
                                   </Visibility>
                                   <Style>
                                     <Border>
@@ -633,9 +693,9 @@
                                 </Textbox>
                               </ReportItems>
                               <DataElementOutput>ContentsOnly</DataElementOutput>
-                              <Left>0.08128cm</Left>
-                              <Height>1.61303in</Height>
-                              <Width>13.6062in</Width>
+                              <Left>0.07025cm</Left>
+                              <Height>1.62969in</Height>
+                              <Width>13.61054in</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -648,7 +708,7 @@
                                 <BreakLocation>End</BreakLocation>
                               </PageBreak>
                               <DataElementOutput>ContentsOnly</DataElementOutput>
-                              <Top>1.545in</Top>
+                              <Top>1.56166in</Top>
                               <Left>0.11836cm</Left>
                               <Height>0in</Height>
                               <Width>9.6479in</Width>
@@ -941,7 +1001,7 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>Datadictionary</DataSetName>
-                              <Top>1.3381in</Top>
+                              <Top>1.35476in</Top>
                               <Left>0.11836cm</Left>
                               <Height>0.27493in</Height>
                               <Width>13.5916in</Width>
@@ -998,7 +1058,7 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
             <FixedColumnHeaders>true</FixedColumnHeaders>
             <DataSetName>Datadictionary</DataSetName>
             <Left>0.08128cm</Left>
-            <Height>2.54991in</Height>
+            <Height>2.56657in</Height>
             <Width>13.6382in</Width>
             <Style />
             <cl:ComponentMetadata>
@@ -1069,14 +1129,6 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
       </Body>
       <Width>34.72231cm</Width>
       <Page>
-        <PageHeader>
-          <Height>0.02646cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <BackgroundColor>#ffffff</BackgroundColor>
-          </Style>
-        </PageHeader>
         <PageFooter>
           <Height>1.64719cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>

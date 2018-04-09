@@ -36,7 +36,8 @@ BEGIN
 		DDTD.TableRowCount,
 		DDCD.ColumnDescription,
 		DDTD.TableActive,
-		DDTD.HasTriggers
+		DDTD.HasTriggers,
+		DDTD.HasCheckConstraints
 	FROM 
 		DBA.DataDictionary DD
 		LEFT JOIN DBA.DataDictionaryTableDesc DDTD

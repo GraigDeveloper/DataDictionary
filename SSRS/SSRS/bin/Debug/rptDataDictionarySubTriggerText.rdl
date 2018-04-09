@@ -62,15 +62,15 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>5.62208cm</Width>
+                  <Width>3.37167cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>17.99459cm</Width>
+                  <Width>16.23807cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>1.2cm</Height>
+                  <Height>0.97069cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -108,30 +108,25 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox6">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Trigger Text</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
-                                  </Style>
+                                  <Value />
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
-                            <BackgroundColor>Blue</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -147,14 +142,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Table_Name">
+                        <Textbox Name="TriggerName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Table_Name.Value</Value>
+                                  <Value>=Fields!TriggerName.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -163,7 +158,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Table_Name</rd:DefaultName>
+                          <rd:DefaultName>TriggerName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -234,9 +229,9 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Top>0.69669cm</Top>
-            <Height>1.8cm</Height>
-            <Width>23.61667cm</Width>
+            <Top>0.66142cm</Top>
+            <Height>1.57069cm</Height>
+            <Width>19.60974cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -266,7 +261,7 @@
               </Paragraph>
             </Paragraphs>
             <Height>0.2604in</Height>
-            <Width>9.2979in</Width>
+            <Width>7.72037in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -276,18 +271,79 @@
               <Direction>LTR</Direction>
             </Style>
           </Textbox>
+          <Textbox Name="Back">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="Back To Report"</Value>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>rptDataDictionary</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Yellow</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <ActionInfo>
+              <Actions>
+                <Action>
+                  <Drillthrough>
+                    <ReportName>rptDataDictionary</ReportName>
+                    <Parameters>
+                      <Parameter Name="DatabaseName">
+                        <Value>=First(Fields!DatabaseName.Value, "TableTriggers")</Value>
+                      </Parameter>
+                      <Parameter Name="TABLE_SCHEMA">
+                        <Value>%</Value>
+                      </Parameter>
+                    </Parameters>
+                  </Drillthrough>
+                </Action>
+              </Actions>
+            </ActionInfo>
+            <Top>0.2604in</Top>
+            <Left>7.84537in</Left>
+            <Height>0.38216in</Height>
+            <Width>0.98425in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>Red</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>24.96694mm</Height>
+        <Height>22.3211mm</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>245.00332mm</Width>
+      <Width>279mm</Width>
       <Page>
-        <PageHeight>1.5cm</PageHeight>
-        <PageWidth>8cm</PageWidth>
+        <PageHeight>21cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>0cm</LeftMargin>
         <RightMargin>0cm</RightMargin>
         <TopMargin>0cm</TopMargin>

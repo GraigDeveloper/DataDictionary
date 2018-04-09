@@ -1,4 +1,5 @@
-USE  [AdventureWorks2016CTP3]
+--USE  [AdventureWorks2016CTP3]
+use DBA
 go
 Declare @DatabaseName varchar(128)
 
@@ -13,6 +14,12 @@ WHERE
 DELETE 
 FROM 
 	DBA.SSRS.TableTriggers
+WHERE
+	DatabaseName = @DatabaseName
+
+DELETE 
+FROM 
+	DBA.SSRS.CheckConstraints
 WHERE
 	DatabaseName = @DatabaseName
 
@@ -313,13 +320,6 @@ SELECT
 	 WHERE
 			Triggers.xtype = 'TR'
 			And Tables.xtype = 'U'
---First reset flag for tables that have triggers
-UPDATE
-	DBA.[DBA].[DataDictionaryTableDesc]
-SET
-	HasTriggers = 0
-WHERE
-	DatabaseName = @DatabaseName
 
 --Update Flag for Tables whick have triggers
 UPDATE
@@ -334,6 +334,51 @@ FROM
 		AND DDTD.TABLE_NAME= TT.TABLE_NAME
 WHERE
 	DDTD.DatabaseName = @DatabaseName
+
+--Populate Check Constraints Table for Current Database
+INSERT INTO DBA.[SSRS].[CheckConstraints]
+	(
+	[DatabaseName] ,
+	[TABLE_SCHEMA] ,
+	[TABLE_NAME] ,
+	[COLUMN_NAME],
+	[ConstraintName] ,
+	[DefaultValue],
+	[CheckValue])
+SELECT
+	@DatabaseName,
+	S.name TABLE_SCHEMA,
+    t.Name [TABLE_NAME],
+    c.Name [COLUMN_NAME],
+    dc.Name ConstraintName,
+    dc.definition DefaultVale,
+    cc.definition CheckValue
+FROM 
+	sys.tables t
+	INNER JOIN sys.default_constraints dc 
+		ON t.object_id = dc.parent_object_id
+	INNER JOIN sys.columns c 
+		ON dc.parent_object_id = c.object_id 
+		AND c.column_id = dc.parent_column_id
+	LEFT JOIN sys.check_constraints cc
+		ON t.object_id =cc.parent_OBJECT_id
+		AND cc.parent_column_id = dc.parent_column_id
+	INNER JOIN sys.schemas s
+		ON S.schema_id = T.schema_id
+		
+--Update Flag for Tables whick have triggers
+UPDATE
+	DBA.[DBA].[DataDictionaryTableDesc]
+SET
+	HasCheckConstraints = 1
+FROM
+	DBA.DBA.DataDictionaryTableDesc DDTD
+	INNER JOIN DBA.SSRS.[CheckConstraints] TT
+		ON DDTD.DatabaseName = TT.DatabaseName
+		AND DDTD.TABLE_SCHEMA = TT.TABLE_SCHEMA 
+		AND DDTD.TABLE_NAME= TT.TABLE_NAME
+WHERE
+	DDTD.DatabaseName = @DatabaseName	
 
 ---------------CREATE FOREIGN KEYS
 
