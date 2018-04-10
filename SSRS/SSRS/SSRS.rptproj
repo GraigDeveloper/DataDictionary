@@ -57,9 +57,9 @@
     <Report Include="Portrait.rdl" />
     <Report Include="rptDataDictionary.rdl" />
     <Report Include="rptDataDictionaryColCons.rdl" />
+    <Report Include="rptDataDictionaryIndexes.rdl" />
     <Report Include="rptDataDictionarySubTableUse.rdl" />
     <Report Include="rptDataDictionarySubTriggerText.rdl" />
-    <Report Include="TableUsage.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>

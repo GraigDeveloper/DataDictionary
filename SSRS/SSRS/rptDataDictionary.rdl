@@ -28,6 +28,9 @@
             <Value>=Parameters!DatabaseName.Value</Value>
             <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
+          <QueryParameter Name="@TABLE_NAME">
+            <Value>=Parameters!TABLE_NAME.Value</Value>
+          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>SSRS.uspDataDictionary</CommandText>
@@ -161,6 +164,10 @@
           <DataField>HasCheckConstraints</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="HasIndexes">
+          <DataField>HasIndexes</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
     <DataSet Name="DataBaseNames">
@@ -184,7 +191,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>13.6382in</Width>
+                  <Width>14.05487in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -614,8 +621,8 @@
                                       </Action>
                                     </Actions>
                                   </ActionInfo>
-                                  <Top>1.0758cm</Top>
-                                  <Left>3.80511cm</Left>
+                                  <Top>1.10376cm</Top>
+                                  <Left>8.16192cm</Left>
                                   <Height>0.6cm</Height>
                                   <Width>3.24083cm</Width>
                                   <ZIndex>12</ZIndex>
@@ -640,7 +647,7 @@
                                     <Paragraph>
                                       <TextRuns>
                                         <TextRun>
-                                          <Value>=IIf(Fields!HasCheckConstraints.Value, "Has Check Constraints", "No Constraints")</Value>
+                                          <Value>=IIf(Fields!HasCheckConstraints.Value, "Has Constraints", "No Constraints")</Value>
                                           <Style>
                                             <FontWeight>Bold</FontWeight>
                                             <Color>Yellow</Color>
@@ -672,11 +679,69 @@
                                       </Action>
                                     </Actions>
                                   </ActionInfo>
-                                  <Top>1.07581cm</Top>
-                                  <Left>7.51581cm</Left>
+                                  <Top>1.10376cm</Top>
+                                  <Left>12.27831cm</Left>
                                   <Height>0.6cm</Height>
                                   <Width>3.24083cm</Width>
                                   <ZIndex>13</ZIndex>
+                                  <Visibility>
+                                    <Hidden>=First(Fields!HasTriggers.Value) = False</Hidden>
+                                  </Visibility>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                    <BackgroundColor>Red</BackgroundColor>
+                                    <PaddingLeft>2pt</PaddingLeft>
+                                    <PaddingRight>2pt</PaddingRight>
+                                    <PaddingTop>2pt</PaddingTop>
+                                    <PaddingBottom>2pt</PaddingBottom>
+                                  </Style>
+                                </Textbox>
+                                <Textbox Name="HasTriggers23">
+                                  <CanGrow>true</CanGrow>
+                                  <KeepTogether>true</KeepTogether>
+                                  <Paragraphs>
+                                    <Paragraph>
+                                      <TextRuns>
+                                        <TextRun>
+                                          <Value>=IIf(Fields!HasIndexes.Value = True, "Has Indexes", "No Triggers")</Value>
+                                          <Style>
+                                            <FontWeight>Bold</FontWeight>
+                                            <Color>Yellow</Color>
+                                          </Style>
+                                        </TextRun>
+                                      </TextRuns>
+                                      <Style>
+                                        <TextAlign>Center</TextAlign>
+                                      </Style>
+                                    </Paragraph>
+                                  </Paragraphs>
+                                  <ActionInfo>
+                                    <Actions>
+                                      <Action>
+                                        <Drillthrough>
+                                          <ReportName>rptDataDictionaryIndexes</ReportName>
+                                          <Parameters>
+                                            <Parameter Name="DatabaseName">
+                                              <Value>=Fields!DatabaseName.Value</Value>
+                                            </Parameter>
+                                            <Parameter Name="TABLE_SCHEMA">
+                                              <Value>=Fields!TABLE_SCHEMA.Value</Value>
+                                            </Parameter>
+                                            <Parameter Name="TABLE_NAME">
+                                              <Value>=Fields!TABLE_NAME.Value</Value>
+                                            </Parameter>
+                                          </Parameters>
+                                        </Drillthrough>
+                                      </Action>
+                                    </Actions>
+                                  </ActionInfo>
+                                  <Top>1.10376cm</Top>
+                                  <Left>4.21733cm</Left>
+                                  <Height>0.6cm</Height>
+                                  <Width>3.24083cm</Width>
+                                  <ZIndex>14</ZIndex>
                                   <Visibility>
                                     <Hidden>=First(Fields!HasTriggers.Value) = False</Hidden>
                                   </Visibility>
@@ -695,7 +760,7 @@
                               <DataElementOutput>ContentsOnly</DataElementOutput>
                               <Left>0.07025cm</Left>
                               <Height>1.62969in</Height>
-                              <Width>13.61054in</Width>
+                              <Width>14.02721in</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -748,9 +813,10 @@ Fields!IsForeignKey.Value = True, "Bold",
 Fields!IsPrimaryKey.Value = False,"Normal")</FontWeight>
                                                           <TextDecoration>None</TextDecoration>
                                                           <Color>=Switch(
-Fields!IsPrimaryKey.Value=True,"Yellow",
-Fields!IsForeignKey.Value = True, "Blue",
-Fields!IsRequired.Value=true,"Red")</Color>
+Fields!IsPrimaryKey.Value=True AND Fields!IsForeignKey.Value=True,"White",
+Fields!IsPrimaryKey.Value=True AND Fields!IsForeignKey.Value=False, "Yellow",
+Fields!IsPrimaryKey.Value=False AND Fields!IsForeignKey.Value=True, "Yellow",
+Fields!IsPrimaryKey.Value=False AND Fields!IsForeignKey.Value=False, "Black")</Color>
                                                         </Style>
                                                       </TextRun>
                                                     </TextRuns>
@@ -769,9 +835,10 @@ Fields!IsRequired.Value=true,"Red")</Color>
                                                     <Color>#000000</Color>
                                                   </Border>
                                                   <BackgroundColor>=Switch(
-Fields!IsPrimaryKey.Value=True AND Fields!IsForeignKey.Value=True,"Blue",
-Fields!IsPrimaryKey.Value=True,"Red",
-Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
+Fields!IsPrimaryKey.Value=True AND Fields!IsForeignKey.Value=True,"Red",
+Fields!IsPrimaryKey.Value=True AND Fields!IsForeignKey.Value=False, "Red",
+Fields!IsPrimaryKey.Value=False AND Fields!IsForeignKey.Value=True, "Blue",
+Fields!IsPrimaryKey.Value=False AND Fields!IsForeignKey.Value=False, "White")</BackgroundColor>
                                                   <Direction>LTR</Direction>
                                                 </Style>
                                               </Textbox>
@@ -1059,7 +1126,7 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
             <DataSetName>Datadictionary</DataSetName>
             <Left>0.08128cm</Left>
             <Height>2.56657in</Height>
-            <Width>13.6382in</Width>
+            <Width>14.05487in</Width>
             <Style />
             <cl:ComponentMetadata>
               <cl:ComponentId>de04b89d-4690-498a-9799-b02b7cc260fa</cl:ComponentId>
@@ -1127,7 +1194,7 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
           </Border>
         </Style>
       </Body>
-      <Width>34.72231cm</Width>
+      <Width>35.78065cm</Width>
       <Page>
         <PageFooter>
           <Height>1.64719cm</Height>
@@ -1357,7 +1424,7 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
                         <FontSize>11pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                         <TextDecoration>None</TextDecoration>
-                        <Color>DarkBlue</Color>
+                        <Color>Yellow</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1375,26 +1442,7 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
                 <Border>
                   <Style>Solid</Style>
                 </Border>
-                <TopBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </TopBorder>
-                <BottomBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </BottomBorder>
-                <LeftBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </LeftBorder>
-                <RightBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </RightBorder>
+                <BackgroundColor>Blue</BackgroundColor>
                 <Direction>LTR</Direction>
               </Style>
             </Textbox>
@@ -1443,6 +1491,15 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
       </DefaultValue>
       <Prompt>Table Active Status</Prompt>
     </ReportParameter>
+    <ReportParameter Name="TABLE_NAME">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>%</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Table Name</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1463,6 +1520,11 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>TableActiveStatus</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>3</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>TABLE_NAME</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

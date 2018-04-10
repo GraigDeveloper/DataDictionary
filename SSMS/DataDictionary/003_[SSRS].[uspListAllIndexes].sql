@@ -17,9 +17,9 @@ GO
 -- Description:	Data Dictionary Dataset
 -- =============================================
 CREATE PROCEDURE [SSRS].[uspListAllIndexes]
-
-	@TableSchema varchar(120) = NULL,
-	@TableName varchar(120) = NULL
+	@DatabaseName varchar(128) = NULL,
+	@Table_Schema varchar(120) = NULL,
+	@Table_Name varchar(120) = NULL
 	   
 AS
 BEGIN
@@ -29,43 +29,25 @@ BEGIN
 
        
 SELECT
-	0 SSRSOrder,
-	SCHEMA_NAME(T.schema_id) SchemaName, 
-	T.NAME TableName,
-	I.name IndexName,
-	c.name ColumnName,
-	I.is_primary_key [Primary],
-	I.is_unique [Unique],
-	I.TYPE_DESC IndexType
+	[DatabaseName]
+    ,[TABLE_SCHEMA]
+    ,[TABLE_NAME]
+    ,[IndexName]
+    ,[COLUMN_NAME]
+    ,[IsPrimary]
+    ,[IsUnique]
+    ,[IndexType]
 FROM 
-	sys.tables T
-	INNER JOIN SYS.indexes I
-		ON T.object_id = I.object_id
-	INNER JOIN sys.index_columns IC
-		ON IC.object_id = I.object_id
-	INNER JOIN SYS.columns C
-		ON IC.object_id = C.object_id
-		AND ic.column_id = c.column_id
-		AND IC.index_id = I.index_id
+	[DBA].[SSRS].[Indexes]
 WHERE
-	SCHEMA_NAME(T.schema_id) = @TableSchema
-	AND T.NAME = @TableName
-UNION --Blank row so sub-report header shows when no data rows
-SELECT
-	1 SSRSOrder,
-	'',
-	'',
-	'',
-	'',
-	0,
-	0,
-	''
+	[DatabaseName]= @DatabaseName
+	AND [TABLE_SCHEMA] = @Table_Schema
+	AND [TABLE_NAME]= @Table_Name
 ORDER BY
-	SSRSOrder, 
-	SchemaName,
-	T.NAME,
-	I.is_primary_key DESC,
-	C.name,
-	I.NAME
+	[TABLE_SCHEMA],
+	[TABLE_NAME],
+	[IsPrimary] DESC,
+	[IsUnique],
+    [IndexType]
 		
 END

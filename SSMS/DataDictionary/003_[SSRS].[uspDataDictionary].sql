@@ -19,6 +19,7 @@ GO
 CREATE PROCEDURE [SSRS].[uspDataDictionary]
 @DataBaseName VARCHAR(128) ,
 @TABLE_SCHEMA VARCHAR(128) = '%',
+@TABLE_NAME VARCHAR(128) = '%',
 @TableActiveStatus bit = 1
 	   
 AS
@@ -37,7 +38,8 @@ BEGIN
 		DDCD.ColumnDescription,
 		DDTD.TableActive,
 		DDTD.HasTriggers,
-		DDTD.HasCheckConstraints
+		DDTD.HasCheckConstraints,
+		DDTD.HasIndexes
 	FROM 
 		DBA.DataDictionary DD
 		LEFT JOIN DBA.DataDictionaryTableDesc DDTD
@@ -52,6 +54,7 @@ BEGIN
 	WHERE
 		DD.DatabaseName = @DatabaseName
 		AND DD.TABLE_SCHEMA LIKE @TABLE_SCHEMA
+		AND DD.TABLE_NAME LIKE @TABLE_NAME
 		AND (DDTD.TableActive =1					--If @TableActiveStaus = 1 only shows active tables
 		OR DDTD.TableActive = @TableActiveStatus )--If @TableActiveStaus = 0 only shows active and non-active tables
 		

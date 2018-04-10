@@ -39,6 +39,8 @@ DROP TABLE IF EXISTS [SSRS].[TableTriggers]
 
 DROP TABLE IF EXISTS [SSRS].[CheckConstraints]
 
+DROP TABLE IF EXISTS [SSRS].[Indexes]
+
 /****** Object:  Table DBA.DataDictionary    Script Date: 07/09/2015 13:23:37 ******/
 SET ANSI_NULLS ON
 GO
@@ -98,7 +100,8 @@ CREATE TABLE [DBA].[DataDictionaryTableDesc](
       [TableRowCount] [BIGINT],
       [TableActive] [bit] Default(1) NOT NULL,
 	  [HasTriggers] [bit] Default(0) NOT NULL,
-	  [HasCheckConstraints] [bit] Default(0) NOT NULL
+	  [HasCheckConstraints] [bit] Default(0) NOT NULL,
+	  [HasIndexes][bit] Default(0) NOT NULL
 CONSTRAINT [PK_DataDictionaryTableDesc] PRIMARY KEY CLUSTERED 
 (
 	  [DatabaseName] ASC,
@@ -160,4 +163,24 @@ CREATE TABLE [SSRS].[CheckConstraints](
 	[ConstraintName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+--[SSRS].[Indexes]
+CREATE TABLE [SSRS].[Indexes](
+	[DatabaseName] [varchar](128) NOT NULL,
+	[TABLE_SCHEMA] [varchar](128) NOT NULL,
+	[TABLE_NAME] [varchar](128) NOT NULL,
+	[IndexName] [varchar](128) NOT NULL,
+	[COLUMN_NAME] [varchar](128) NOT NULL,
+	IsPrimary bit NOT NULL,
+	IsUnique bit NOT NULL,
+	IndexType  [varchar](128) NOT NULL
+ CONSTRAINT [PK_SSRS_Indexes] PRIMARY KEY CLUSTERED 
+(
+	[DatabaseName] ASC,
+	[TABLE_SCHEMA] ASC,
+	[TABLE_NAME] ASC,
+	[IndexName] ASC,
+	[COLUMN_NAME] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] 
 

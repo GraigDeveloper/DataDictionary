@@ -1,5 +1,5 @@
---USE  [AdventureWorks2016CTP3]
-use DBA
+USE  [AdventureWorks2016CTP3]
+--use DBA
 go
 Declare @DatabaseName varchar(128)
 
@@ -20,6 +20,12 @@ WHERE
 DELETE 
 FROM 
 	DBA.SSRS.CheckConstraints
+WHERE
+	DatabaseName = @DatabaseName
+
+DELETE 
+FROM 
+	DBA.SSRS.Indexes
 WHERE
 	DatabaseName = @DatabaseName
 
@@ -378,7 +384,51 @@ FROM
 		AND DDTD.TABLE_SCHEMA = TT.TABLE_SCHEMA 
 		AND DDTD.TABLE_NAME= TT.TABLE_NAME
 WHERE
-	DDTD.DatabaseName = @DatabaseName	
+	DDTD.DatabaseName = @DatabaseName
+
+--Populate Index Tables
+INSERT INTO DBA.[SSRS].[Indexes]
+	([DatabaseName],
+	[TABLE_SCHEMA],
+	[TABLE_NAME],
+	[IndexName],
+	[COLUMN_NAME],
+	IsPrimary,
+	IsUnique ,
+	IndexType )
+SELECT
+	@DatabaseName,
+	SCHEMA_NAME(T.schema_id) Table_Schema, 
+	T.NAME Table_Name,
+	I.name IndexName,
+	c.name ColumnName,
+	I.is_primary_key [Primary],
+	I.is_unique [Unique],
+	I.TYPE_DESC IndexType
+FROM 
+	sys.tables T
+	INNER JOIN SYS.indexes I
+		ON T.object_id = I.object_id
+	INNER JOIN sys.index_columns IC
+		ON IC.object_id = I.object_id
+	INNER JOIN SYS.columns C
+		ON IC.object_id = C.object_id
+		AND ic.column_id = c.column_id
+		AND IC.index_id = I.index_id
+
+--Update Flag for Tables whick have triggers
+UPDATE
+	DBA.[DBA].[DataDictionaryTableDesc]
+SET
+	HasIndexes = 1
+FROM
+	DBA.DBA.DataDictionaryTableDesc DDTD
+	INNER JOIN DBA.SSRS.[Indexes] IX
+		ON DDTD.DatabaseName = IX.DatabaseName
+		AND DDTD.TABLE_SCHEMA = IX.TABLE_SCHEMA 
+		AND DDTD.TABLE_NAME= IX.TABLE_NAME
+WHERE
+	DDTD.DatabaseName = @DatabaseName
 
 ---------------CREATE FOREIGN KEYS
 
