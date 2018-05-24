@@ -13,7 +13,7 @@
 -- Script Version: 1.0 (01-Sep-2015)
 -- Report Spec:         DataDictionary Report_v1.0_01-Sep-2015 
 -- ===========================================================================
-
+USE DBA
 --Data Base Administrator
 IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = N'DBA')
 

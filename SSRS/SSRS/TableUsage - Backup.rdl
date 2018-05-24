@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="HA">
@@ -13,7 +13,7 @@
       <Query>
         <DataSourceName>HA</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>uspTableUsage</CommandText>
+        <CommandText>DBA.uspTableUsage</CommandText>
       </Query>
       <Fields>
         <Field Name="schemaname">
@@ -63,39 +63,39 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.38854cm</Width>
+                  <Width>2.57917cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.10313cm</Width>
+                  <Width>1.94437cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.78626cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.52105cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.10313cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>1.62687cm</Width>
+                  <Width>5.06646cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.89146cm</Width>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.52104cm</Width>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.92333cm</Width>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>1.07625cm</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -106,22 +106,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>High </Value>
-                                  <Style>
-                                    <FontSize>12pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Index</Value>
+                                  <Value>High Index</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -210,7 +195,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Table Name</Value>
+                                  <Value>tablename</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -247,7 +232,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Rows</Value>
+                                  <Value>#Rows</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -321,22 +306,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Data </Value>
-                                  <Style>
-                                    <FontSize>12pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>(Kb)</Value>
+                                  <Value>Data (Kb)</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -447,7 +417,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Heap</Value>
+                                  <Value>Is Heap</Value>
                                   <Style>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -565,9 +535,6 @@
                               <StateDataElementName />
                               <rd:IconsSet>ThreeUnrimmedTrafficLights</rd:IconsSet>
                               <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                </Border>
                                 <ShadowOffset>2pt</ShadowOffset>
                               </Style>
                               <Top>4</Top>
@@ -576,7 +543,6 @@
                               <Width>92</Width>
                             </StateIndicator>
                           </StateIndicators>
-                          <AutoLayout>true</AutoLayout>
                           <BackFrame>
                             <Style>
                               <Border>
@@ -1152,21 +1118,22 @@ Fields!IsHeap.Value = 0, Fields!tablename.Value )</Value>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!schemaname.Value</Value>
-                    </SortExpression>
-                    <SortExpression>
-                      <Value>=Fields!tablename.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>TableUsage</DataSetName>
-            <Left>0.00001cm</Left>
-            <Height>1.67625cm</Height>
-            <Width>24.36481cm</Width>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!schemaname.Value</Value>
+              </SortExpression>
+              <SortExpression>
+                <Value>=Fields!tablename.Value</Value>
+              </SortExpression>
+            </SortExpressions>
+            <Top>0.55534cm</Top>
+            <Left>0.50271cm</Left>
+            <Height>1.2cm</Height>
+            <Width>27.09cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -1194,21 +1161,66 @@ Fields!IsHeap.Value = 0, Fields!tablename.Value )</Value>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>23.18333mm</Height>
+        <Height>165mm</Height>
         <Style>
           <Border>
             <Style>Solid</Style>
           </Border>
         </Style>
       </Body>
-      <Width>243.6482mm</Width>
+      <Width>275.9272mm</Width>
       <Page>
+        <PageHeader>
+          <Height>15mm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox19">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Table Statistics - Datatbase  </Value>
+                      <Style>
+                        <FontSize>14pt</FontSize>
+                        <Color>White</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox19</rd:DefaultName>
+              <Height>0.97607cm</Height>
+              <Width>27.59272cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <BackgroundColor>Black</BackgroundColor>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>
-        <LeftMargin>0mm</LeftMargin>
-        <RightMargin>0mm</RightMargin>
-        <TopMargin>0mm</TopMargin>
-        <BottomMargin>0mm</BottomMargin>
+        <LeftMargin>10mm</LeftMargin>
+        <RightMargin>10mm</RightMargin>
+        <TopMargin>20mm</TopMargin>
+        <BottomMargin>10mm</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -1227,24 +1239,6 @@ Fields!IsHeap.Value = 0, Fields!tablename.Value )</Value>
       <Hidden>true</Hidden>
     </ReportParameter>
   </ReportParameters>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>1</NumberOfRows>
-      <CellDefinitions>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>ServerName</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>DatabaseName</ParameterName>
-        </CellDefinition>
-      </CellDefinitions>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <EmbeddedImages>
     <EmbeddedImage Name="images">
       <MIMEType>image/jpeg</MIMEType>

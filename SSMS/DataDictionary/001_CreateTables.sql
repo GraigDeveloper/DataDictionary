@@ -18,7 +18,7 @@
 -- Script Version: 1.0 (01-Sep-2015)
 -- Report Spec:  DataDictionary Report_v1.0_01-Sep-2015 
 -- ===========================================================================
-
+USE DBA
 /****** Object:  Table DBA.DataDictionary    Script Date: 07/09/2015 13:23:36 ******/
 IF  EXISTS (SELECT * FROM sys.objects 
       WHERE object_id = OBJECT_ID(N'DBA.DataDictionary') AND type in (N'U'))

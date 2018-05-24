@@ -1,3 +1,4 @@
+USE DBA
 /****** Object:  StoredProcedure [DBA].[uspDataDictionary]    Script Date: 09/07/2015 16:31:58 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[SSRS].[uspDataDictionary]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [SSRS].[uspDataDictionary]

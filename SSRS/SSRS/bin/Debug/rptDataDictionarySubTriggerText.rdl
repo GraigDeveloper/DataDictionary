@@ -9,53 +9,49 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="TableConstraints">
+    <DataSet Name="TableTriggers">
       <Query>
         <DataSourceName>HA</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@TableSchema">
-            <Value>=Parameters!TableSchema.Value</Value>
+          <QueryParameter Name="TableName">
+            <Value>=Parameters!TableName.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@SchemaName">
+          <QueryParameter Name="SchemaName">
             <Value>=Parameters!SchemaName.Value</Value>
             <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
-          <QueryParameter Name="@TableName">
-            <Value>=Parameters!TableName.Value</Value>
+          <QueryParameter Name="DatabaseName">
+            <Value>=Parameters!DatabaseName.Value</Value>
             <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>SSRS.uspConstraintsCheckDefault</CommandText>
+        <CommandText>SSRS.uspFindTableTriggers</CommandText>
       </Query>
       <Fields>
         <Field Name="SSRSOrder">
           <DataField>SSRSOrder</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="SchemaName">
+          <DataField>SchemaName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="TableName">
           <DataField>TableName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ColumnName">
-          <DataField>ColumnName</DataField>
+        <Field Name="TriggerText">
+          <DataField>TriggerText</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
+        <Field Name="TriggerName">
+          <DataField>TriggerName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DefaultVale">
-          <DataField>DefaultVale</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CheckValue">
-          <DataField>CheckValue</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SchemaName">
-          <DataField>SchemaName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="TriggerCreatedDate">
+          <DataField>TriggerCreatedDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -68,18 +64,15 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>5.46333cm</Width>
+                  <Width>5.62208cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.59563cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>6.89208cm</Width>
+                  <Width>17.99459cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>1.2cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -90,7 +83,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CONSTRAINT NAME</Value>
+                                  <Value>Trigger Name</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -124,7 +117,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CONSTRAINT TYPE</Value>
+                                  <Value>Trigger Text</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -149,40 +142,6 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox1">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>CHECK CLAUSE</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                    <Color>White</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BackgroundColor>Blue</BackgroundColor>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -190,14 +149,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CONSTRAINT_NAME">
+                        <Textbox Name="TableName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CONSTRAINT_NAME.Value</Value>
+                                  <Value>=Fields!TableName.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -206,7 +165,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CONSTRAINT_NAME</rd:DefaultName>
+                          <rd:DefaultName>TableName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -222,14 +181,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CONSTRAINT_TYPE">
+                        <Textbox Name="TriggerText">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CONSTRAINT_TYPE.Value</Value>
+                                  <Value>=Fields!TriggerText.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -238,39 +197,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CONSTRAINT_TYPE</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="CHECK_CLAUSE">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!CHECK_CLAUSE.Value</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>CHECK_CLAUSE</rd:DefaultName>
+                          <rd:DefaultName>TriggerText</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -292,7 +219,6 @@
               <TablixMembers>
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -306,10 +232,13 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <NoRowsMessage>No Table Constraints</NoRowsMessage>
-            <DataSetName>TableConstraints</DataSetName>
+            <DataSetName>TableTriggers</DataSetName>
+            <PageBreak>
+              <BreakLocation>End</BreakLocation>
+            </PageBreak>
             <Top>0.69669cm</Top>
-            <Height>1.2cm</Height>
-            <Width>17.95104cm</Width>
+            <Height>1.8cm</Height>
+            <Width>23.61667cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -322,7 +251,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Constraints for Table..." &amp; "[" &amp; Parameters!SchemaName.Value &amp; "].[" &amp; Parameters!TableName.Value &amp; "]"</Value>
+                    <Value>="Triggers for Table..." &amp; "[" &amp; Parameters!SchemaName.Value &amp; "].[" &amp; Parameters!TableName.Value &amp; "]"</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontSize>14pt</FontSize>
@@ -350,7 +279,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>18.96694mm</Height>
+        <Height>24.96694mm</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -370,10 +299,6 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="DatabaseName">
-      <DataType>String</DataType>
-      <Prompt>Database Name</Prompt>
-    </ReportParameter>
     <ReportParameter Name="SchemaName">
       <DataType>String</DataType>
       <Prompt>Schema Name</Prompt>
@@ -382,9 +307,9 @@
       <DataType>String</DataType>
       <Prompt>Table Name</Prompt>
     </ReportParameter>
-    <ReportParameter Name="TableSchema">
+    <ReportParameter Name="DatabaseName">
       <DataType>String</DataType>
-      <Prompt>Table Schema</Prompt>
+      <Prompt>Database Name</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -395,22 +320,17 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>DatabaseName</ParameterName>
+          <ParameterName>SchemaName</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>SchemaName</ParameterName>
+          <ParameterName>TableName</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
-          <ParameterName>TableName</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>TableSchema</ParameterName>
+          <ParameterName>DatabaseName</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

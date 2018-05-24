@@ -1,3 +1,4 @@
+USE DBA
 /****** Object:  StoredProcedure [DBA].[uspAddTableDescription]    Script Date: 10/07/2015 10:34:32 ******/
 IF  EXISTS (SELECT * FROM sys.objects 
       WHERE object_id = OBJECT_ID(N'[DBA].[uspAddColumnDescription]') AND type in (N'P', N'PC'))

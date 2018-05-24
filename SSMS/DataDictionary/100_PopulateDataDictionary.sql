@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 USE  [AdventureWorks2012]
+=======
+USE  [AdventureWorks2016CTP3]
+>>>>>>> 3e48e2f75c2533fa7ebf396731044485a5addb73
 go
 Declare @DatabaseName varchar(128)
 

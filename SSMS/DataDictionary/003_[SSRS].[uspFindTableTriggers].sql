@@ -1,3 +1,4 @@
+USE DBA
 /****** Object:  StoredProcedure [PQRD].[uspFindTableTriggers]    Script Date: 05/19/2015 17:03:31 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[SSRS].[uspFindTableTriggers]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [SSRS].[uspFindTableTriggers]
