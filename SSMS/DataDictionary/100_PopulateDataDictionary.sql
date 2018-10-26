@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-USE  [AdventureWorks2012]
-=======
-USE  [AdventureWorks2016CTP3]
->>>>>>> 3e48e2f75c2533fa7ebf396731044485a5addb73
+
+USE UKVI_FES_Reports
+
 go
 Declare @DatabaseName varchar(128)
 
@@ -111,9 +109,9 @@ SET
 FROM
       DBA.DBA.DataDictionary DD
       INNER JOIN PrimaryKeys PK
-      ON PK.TABLE_SCHEMA = DD.TABLE_SCHEMA
-      AND PK.TABLE_NAME = DD.TABLE_NAME
-      AND PK.COLUMN_NAME = DD.COLUMN_NAME 
+      ON PK.TABLE_SCHEMA COLLATE Latin1_General_CI_AS = DD.TABLE_SCHEMA
+      AND PK.TABLE_NAME COLLATE Latin1_General_CI_AS = DD.TABLE_NAME
+      AND PK.COLUMN_NAME COLLATE Latin1_General_CI_AS = DD.COLUMN_NAME 
 
 --Update DataDictionary Table to flag columns as Foreign Key
 ;WITH ForeignKeys 
@@ -139,9 +137,9 @@ SET
 FROM
       DBA.DBA.DataDictionary DD
       INNER JOIN ForeignKeys FK
-            ON FK_Schema = DD.TABLE_SCHEMA
-            AND FK.FK_Table = DD.TABLE_NAME
-            AND FK.FK_Column = DD.COLUMN_NAME
+            ON FK_Schema COLLATE Latin1_General_CI_AS= DD.TABLE_SCHEMA
+            AND FK.FK_Table COLLATE Latin1_General_CI_AS= DD.TABLE_NAME
+            AND FK.FK_Column COLLATE Latin1_General_CI_AS= DD.COLUMN_NAME
             
 --Table And Column descriptions are held in tables
 --    DBA.DBA.DataDictionaryTableDesc
@@ -185,8 +183,8 @@ UPDATE DBA.DBA.DataDictionaryTableDesc
 SET [ObjectType] ='View'
 FROM DBA.DBA.DataDictionaryTableDesc DDTD
 INNER JOIN INFORMATION_SCHEMA.VIEWS V
-      ON  DDTD.TABLE_SCHEMA = V.TABLE_SCHEMA
-            AND DDTD.TABLE_NAME =V.TABLE_NAME
+      ON  DDTD.TABLE_SCHEMA = V.TABLE_SCHEMA COLLATE Latin1_General_CI_AS
+            AND DDTD.TABLE_NAME =V.TABLE_NAME COLLATE Latin1_General_CI_AS
 WHERE
 	DDTD.DatabaseName = @DatabaseName
 --Update DBA.DBA.DataDictionaryColumnDesc and set [ObjectType] to View
@@ -196,8 +194,8 @@ UPDATE DBA.DBA.DataDictionaryColumnDesc
 SET [ObjectType] ='View'
 FROM DBA.DBA.DataDictionaryColumnDesc DDCD
 INNER JOIN INFORMATION_SCHEMA.VIEWS V
-      ON	DDCD.TABLE_SCHEMA = V.TABLE_SCHEMA
-            AND DDCD.TABLE_NAME =V.TABLE_NAME
+      ON	DDCD.TABLE_SCHEMA = V.TABLE_SCHEMA COLLATE Latin1_General_CI_AS
+            AND DDCD.TABLE_NAME =V.TABLE_NAME COLLATE Latin1_General_CI_AS
 WHERE
 	DDCD.DatabaseName = @DatabaseName
 --Remove old Records from DBA.DBA.DataDictionaryTableDesc
@@ -282,8 +280,8 @@ SET
 FROM 
       CountRowsInTables CRT
       INNER JOIN DBA.DBA.DataDictionaryTableDesc DDTD
-      ON CRT.Table_Schema = DDTD.TABLE_SCHEMA
-      AND CRT.Table_Name = DDTD.TABLE_NAME
+      ON CRT.Table_Schema COLLATE Latin1_General_CI_AS= DDTD.TABLE_SCHEMA
+      AND CRT.Table_Name COLLATE Latin1_General_CI_AS= DDTD.TABLE_NAME
 
 ---------------CREATE FOREIGN KEYS
 

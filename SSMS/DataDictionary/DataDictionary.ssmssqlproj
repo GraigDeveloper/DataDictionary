@@ -3,7 +3,7 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="DESKTOP-GPRBCK1:AzureAD\PeterDavis">
+        <ConnectionNode Name="DESKTOP-GPRBCK1:AD-ONE\pedavies">
           <Created>2018-04-04T14:55:06.3856311+01:00</Created>
           <Type>SQL</Type>
           <Server>DESKTOP-GPRBCK1</Server>
@@ -14,6 +14,18 @@
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName />
+        </ConnectionNode>
+        <ConnectionNode Name="ITEM-86075:AD-ONE\pedavies">
+          <Created>2018-09-28T12:03:52.020604+01:00</Created>
+          <Type>SQL</Type>
+          <Server>ITEM-86075</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
         </ConnectionNode>
       </Items>
     </LogicalFolder>
@@ -80,8 +92,8 @@
           <FullPath>005_SSRS.vwDatabaseNames.sql</FullPath>
         </FileNode>
         <FileNode Name="100_PopulateDataDictionary.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>100_PopulateDataDictionary.sql</FullPath>
         </FileNode>
