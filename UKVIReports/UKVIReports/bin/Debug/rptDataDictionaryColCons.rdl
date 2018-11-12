@@ -2,23 +2,19 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="HA">
-      <DataSourceReference>DataDictionary</DataSourceReference>
+    <DataSource Name="DBA">
+      <DataSourceReference>DBA</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>ffb6b3f3-1d8a-4a11-8e3a-ad92b4d8282f</rd:DataSourceID>
+      <rd:DataSourceID>a5207abe-9017-45cc-b68a-103c929484a9</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="TableConstraints">
       <Query>
-        <DataSourceName>HA</DataSourceName>
+        <DataSourceName>DBA</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@TableSchema">
             <Value>=Parameters!TableSchema.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@SchemaName">
-            <Value>=Parameters!SchemaName.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
           <QueryParameter Name="@TableName">
             <Value>=Parameters!TableName.Value</Value>
@@ -124,7 +120,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CONSTRAINT TYPE</Value>
+                                  <Value>Default Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -190,14 +186,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CONSTRAINT_NAME">
+                        <Textbox Name="Name">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CONSTRAINT_NAME.Value</Value>
+                                  <Value>=Fields!Name.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -206,7 +202,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CONSTRAINT_NAME</rd:DefaultName>
+                          <rd:DefaultName>Name</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -222,14 +218,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CONSTRAINT_TYPE">
+                        <Textbox Name="DefaultVale">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CONSTRAINT_TYPE.Value</Value>
+                                  <Value>=Fields!DefaultVale.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -238,7 +234,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CONSTRAINT_TYPE</rd:DefaultName>
+                          <rd:DefaultName>DefaultVale</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -254,14 +250,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CHECK_CLAUSE">
+                        <Textbox Name="CheckValue">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CHECK_CLAUSE.Value</Value>
+                                  <Value>=Fields!CheckValue.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -270,7 +266,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CHECK_CLAUSE</rd:DefaultName>
+                          <rd:DefaultName>CheckValue</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -374,10 +370,6 @@
       <DataType>String</DataType>
       <Prompt>Database Name</Prompt>
     </ReportParameter>
-    <ReportParameter Name="SchemaName">
-      <DataType>String</DataType>
-      <Prompt>Schema Name</Prompt>
-    </ReportParameter>
     <ReportParameter Name="TableName">
       <DataType>String</DataType>
       <Prompt>Table Name</Prompt>
@@ -396,11 +388,6 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>DatabaseName</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>SchemaName</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>

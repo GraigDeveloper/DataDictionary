@@ -91,6 +91,12 @@
           <AssociatedConnUserName />
           <FullPath>005_SSRS.vwDatabaseNames.sql</FullPath>
         </FileNode>
+        <FileNode Name="006_dba.usp_TableSchema.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>006_dba.usp_TableSchema.sql</FullPath>
+        </FileNode>
         <FileNode Name="100_PopulateDataDictionary.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
