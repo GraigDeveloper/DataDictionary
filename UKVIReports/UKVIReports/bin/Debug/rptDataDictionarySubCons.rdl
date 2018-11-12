@@ -2,8 +2,8 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="HA">
-      <DataSourceReference>DataDictionary</DataSourceReference>
+    <DataSource Name="DBA">
+      <DataSourceReference>DBA</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>ffb6b3f3-1d8a-4a11-8e3a-ad92b4d8282f</rd:DataSourceID>
     </DataSource>
@@ -11,14 +11,13 @@
   <DataSets>
     <DataSet Name="TableConstraints">
       <Query>
-        <DataSourceName>HA</DataSourceName>
+        <DataSourceName>DBA</DataSourceName>
         <QueryParameters>
+          <QueryParameter Name="@DatabaseName">
+            <Value>=Parameters!DatabaseName.Value</Value>
+          </QueryParameter>
           <QueryParameter Name="@TableSchema">
             <Value>=Parameters!TableSchema.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@SchemaName">
-            <Value>=Parameters!SchemaName.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
           <QueryParameter Name="@TableName">
             <Value>=Parameters!TableName.Value</Value>
@@ -26,35 +25,23 @@
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>SSRS.uspConstraintsCheckDefault</CommandText>
+        <CommandText>SSRS.uspColumnDefaultAndChecks</CommandText>
       </Query>
       <Fields>
-        <Field Name="SSRSOrder">
-          <DataField>SSRSOrder</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TableName">
-          <DataField>TableName</DataField>
+        <Field Name="COLUMN_NAME">
+          <DataField>COLUMN_NAME</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ColumnName">
-          <DataField>ColumnName</DataField>
+        <Field Name="DefaultValue">
+          <DataField>DefaultValue</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="DefaultVale">
-          <DataField>DefaultVale</DataField>
+        <Field Name="ConstraintName">
+          <DataField>ConstraintName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CheckValue">
           <DataField>CheckValue</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="SchemaName">
-          <DataField>SchemaName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -68,13 +55,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>5.46333cm</Width>
+                  <Width>6.16417cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.59563cm</Width>
+                  <Width>7.9375cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.89208cm</Width>
+                  <Width>8.09679cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -90,7 +77,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CONSTRAINT NAME</Value>
+                                  <Value>Constraint Name</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -124,7 +111,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CONSTRAINT TYPE</Value>
+                                  <Value>Default Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -158,7 +145,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CHECK CLAUSE</Value>
+                                  <Value>Check Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -190,14 +177,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CONSTRAINT_NAME">
+                        <Textbox Name="ConstraintName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CONSTRAINT_NAME.Value</Value>
+                                  <Value>=Fields!ConstraintName.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -206,7 +193,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CONSTRAINT_NAME</rd:DefaultName>
+                          <rd:DefaultName>ConstraintName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -222,14 +209,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CONSTRAINT_TYPE">
+                        <Textbox Name="DefaultValue">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CONSTRAINT_TYPE.Value</Value>
+                                  <Value>=Fields!DefaultValue.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -238,7 +225,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CONSTRAINT_TYPE</rd:DefaultName>
+                          <rd:DefaultName>DefaultValue</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -254,14 +241,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CHECK_CLAUSE">
+                        <Textbox Name="CheckValue">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!CHECK_CLAUSE.Value</Value>
+                                  <Value>=Fields!CheckValue.Value</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -270,7 +257,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CHECK_CLAUSE</rd:DefaultName>
+                          <rd:DefaultName>CheckValue</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -312,7 +299,7 @@
             </PageBreak>
             <Top>0.69669cm</Top>
             <Height>1.2cm</Height>
-            <Width>17.95104cm</Width>
+            <Width>22.19846cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -325,7 +312,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>="Constraints for Table..." &amp; "[" &amp; Parameters!SchemaName.Value &amp; "].[" &amp; Parameters!TableName.Value &amp; "]"</Value>
+                    <Value>="Column Check Constraints for Table..." &amp; "[" &amp; Parameters!TableSchema.Value &amp; "].[" &amp; Parameters!TableName.Value &amp; "]"</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontSize>14pt</FontSize>
@@ -343,7 +330,7 @@
             </Paragraphs>
             <Top>0.01389in</Top>
             <Height>0.2604in</Height>
-            <Width>9.2979in</Width>
+            <Width>8.73955in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -361,7 +348,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>245.00332mm</Width>
+      <Width>225.15957mm</Width>
       <Page>
         <PageHeight>1.5cm</PageHeight>
         <PageWidth>8cm</PageWidth>
@@ -374,14 +361,6 @@
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="DatabaseName">
-      <DataType>String</DataType>
-      <Prompt>Database Name</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="SchemaName">
-      <DataType>String</DataType>
-      <Prompt>Schema Name</Prompt>
-    </ReportParameter>
     <ReportParameter Name="TableName">
       <DataType>String</DataType>
       <Prompt>Table Name</Prompt>
@@ -390,22 +369,16 @@
       <DataType>String</DataType>
       <Prompt>Table Schema</Prompt>
     </ReportParameter>
+    <ReportParameter Name="DatabaseName">
+      <DataType>String</DataType>
+      <Prompt>Database Name</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
+      <NumberOfRows>3</NumberOfRows>
       <CellDefinitions>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>DatabaseName</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>1</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>SchemaName</ParameterName>
-        </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
@@ -415,6 +388,11 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>TableSchema</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>DatabaseName</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -433,14 +411,6 @@ sUxa9c6ctN6lOxtMSEpVI2uFCHVbyFhZHkBs+AonjNMtwaevacPt26cIYDgS62hfcA9FAEfaDt4Pt7Vl
 afGjrs9erBHmSkpS8SpCyjoopJGceWcdKKK9N+dcLXrdF+z5smTlRD21RIdj2V0MLU24+41FS6k/c13riW949078j4qsyLUYi77ZWZJ+mTGi3JoFsANqQogt4GBsUI6MjjxK9axRXMG+eGnNSPajk3KQW1MMqtyyGVKSvarg5CtoOMLxj2z51H6W1M3ddMXO3Nw32S1ZVrLjs1b2dre3hKvD18qxRQFkYifQayt8Vhe2JLgypAaAx3Tm5neUn0UVbsY4VuOfu40dGXZa7hD0uIzG2xtKbMpadynQ0nugUj/DUd2Scq4yPPIKKAnLLb4sfVF6daaCVDYU8khBcG5zaOidykhSsYyRk5NWKiigCiiigCiiigCiiigP/9k=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <Variables>
-    <Variable Name="DataBaseName">
-      <Value>=Parameters!DatabaseName.Value</Value>
-    </Variable>
-    <Variable Name="TableName">
-      <Value>=Parameters!TableName.Value</Value>
-    </Variable>
-  </Variables>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>684f6850-e265-450d-b3d9-77d00747517d</rd:ReportID>
 </Report>

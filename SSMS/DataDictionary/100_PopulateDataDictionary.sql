@@ -1,5 +1,5 @@
 
-USE UKVI_FES_Reports
+USE ReportServer
 
 go
 Declare @DatabaseName varchar(128)
@@ -11,6 +11,13 @@ FROM
 	DBA.DBA.DataDictionary
 WHERE
 	DatabaseName = @DatabaseName
+
+DELETE 
+FROM 
+	DBA.DBA.ColumnDefaultAndChecks
+WHERE
+	DatabaseName = @DatabaseName
+
 
 ----------------DROP FOREIGN KEYS
 
@@ -308,6 +315,48 @@ FROM
 
 --ALTER TABLE [DBA].[DataDictionary] 
 -- CHECK CONSTRAINT [FK_DataDictionary_DataDictionaryColumnDesc] 
+
+INSERT INTO 
+	DBA.DBA.ColumnDefaultAndChecks(
+	[DatabaseName],
+    [TABLE_SCHEMA],
+    [TABLE_NAME] ,
+    [COLUMN_NAME],
+	ConstraintName,
+	DefaultValue, 
+	CheckValue )
+SELECT
+	@DatabaseName,
+	S.name TableSchema,
+    TableName = t.Name ,
+    ColumnName = c.Name ,
+	dc.Name ConstraintName,
+    dc.definition DefaultVale,
+    Null CheckValue
+FROM 
+	sys.tables t
+	INNER JOIN sys.default_constraints dc 
+		ON t.object_id = dc.parent_object_id
+	INNER JOIN sys.columns c 
+		ON dc.parent_object_id = c.object_id 
+		AND c.column_id = dc.parent_column_id
+	LEFT JOIN sys.check_constraints cc
+		ON t.object_id =cc.parent_OBJECT_id
+		AND cc.parent_column_id = dc.parent_column_id
+	INNER JOIN sys.schemas s
+		ON S.schema_id = T.schema_id
+UNION
+SELECT
+	@DatabaseName, 
+	TABLE_NAME,
+	COLUMN_NAME,
+	cc.CONSTRAINT_SCHEMA,
+	cc.CONSTRAINT_NAME,
+	null DefaultVale,
+    CHECK_CLAUSE CheckValue    
+FROM     INFORMATION_SCHEMA.CHECK_CONSTRAINTS cc
+         INNER JOIN INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE c
+			   ON cc.CONSTRAINT_NAME = c.CONSTRAINT_NAME
 
       
 --Result Set for Report

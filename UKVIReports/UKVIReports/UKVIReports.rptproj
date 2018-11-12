@@ -56,9 +56,7 @@
     <Report Include="LandscapeA3.rdl" />
     <Report Include="Portrait.rdl" />
     <Report Include="rptDataDictionary.rdl" />
-    <Report Include="rptDataDictionaryColCons.rdl" />
     <Report Include="rptDataDictionarySubCons.rdl" />
-    <Report Include="rptDataDictionarySubDefColCons.rdl" />
     <Report Include="rptDataDictionarySubTableUse.rdl" />
     <Report Include="rptDataDictionarySubTriggers2.rdl" />
     <Report Include="rptDataDictionarySubTriggerText.rdl" />
