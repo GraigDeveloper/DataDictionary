@@ -1,5 +1,5 @@
 
-USE ReportServer
+USE UKIPMembers
 
 go
 Declare @DatabaseName varchar(128)
