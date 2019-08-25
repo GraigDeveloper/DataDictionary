@@ -3,10 +3,10 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="DESKTOP-GPRBCK1:AD-ONE\pedavies">
-          <Created>2018-04-04T14:55:06.3856311+01:00</Created>
+        <ConnectionNode Name="DESKTOP-27FPC16:DESKTOP-27FPC16\devel">
+          <Created>2019-04-10T19:27:46.7209523+01:00</Created>
           <Type>SQL</Type>
-          <Server>DESKTOP-GPRBCK1</Server>
+          <Server>DESKTOP-27FPC16</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
           <InitialDB />
@@ -15,97 +15,85 @@
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName />
         </ConnectionNode>
-        <ConnectionNode Name="ITEM-86075:AD-ONE\pedavies">
-          <Created>2018-09-28T12:03:52.020604+01:00</Created>
-          <Type>SQL</Type>
-          <Server>ITEM-86075</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB />
-          <LoginTimeout>30</LoginTimeout>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="000_CreateSchema.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>000_CreateSchema.sql</FullPath>
         </FileNode>
         <FileNode Name="001_CreateTables.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>001_CreateTables.sql</FullPath>
         </FileNode>
         <FileNode Name="002_Add Table Column Descriptions.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>002_Add Table Column Descriptions.sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspDataDictionary].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspDataDictionary].sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspFindTableTriggers].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspFindTableTriggers].sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspForeignKeys].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspForeignKeys].sql</FullPath>
         </FileNode>
         <FileNode Name="003_[SSRS].[uspListAllIndexes].sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_[SSRS].[uspListAllIndexes].sql</FullPath>
         </FileNode>
         <FileNode Name="003_SSRS.uspReportSchema.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>003_SSRS.uspReportSchema.sql</FullPath>
         </FileNode>
         <FileNode Name="004_Addusp_ColumnTablesDesc.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>004_Addusp_ColumnTablesDesc.sql</FullPath>
         </FileNode>
         <FileNode Name="005_SSRS.vwDatabaseNames.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>005_SSRS.vwDatabaseNames.sql</FullPath>
         </FileNode>
         <FileNode Name="006_dba.usp_TableSchema.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>006_dba.usp_TableSchema.sql</FullPath>
         </FileNode>
         <FileNode Name="100_PopulateDataDictionary.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ITEM-86075:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ITEM-86075</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-27FPC16:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-27FPC16</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>100_PopulateDataDictionary.sql</FullPath>
         </FileNode>
         <FileNode Name="SQLQuery1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-GPRBCK1:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>DESKTOP-GPRBCK1</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>SQLQuery1.sql</FullPath>
         </FileNode>

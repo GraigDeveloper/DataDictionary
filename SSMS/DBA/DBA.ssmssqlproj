@@ -3,14 +3,14 @@
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
-        <ConnectionNode Name="ukgiocrsdev01.mgmt.computacenter.co.uk:GB\pedavies">
-          <Created>2017-08-16T11:25:29.5457898+01:00</Created>
+        <ConnectionNode Name="DESKTOP-27FPC16:DESKTOP-27FPC16\devel">
+          <Created>2019-04-10T19:27:32.0955708+01:00</Created>
           <Type>SQL</Type>
-          <Server>ukgiocrsdev01.mgmt.computacenter.co.uk</Server>
+          <Server>DESKTOP-27FPC16</Server>
           <UserName />
           <Authentication>Windows Authentication</Authentication>
-          <InitialDB>GIO_Asset_DBA</InitialDB>
-          <LoginTimeout>15</LoginTimeout>
+          <InitialDB />
+          <LoginTimeout>30</LoginTimeout>
           <ExecutionTimeout>0</ExecutionTimeout>
           <ConnectionProtocol>NotSpecified</ConnectionProtocol>
           <ApplicationName />
@@ -20,26 +20,26 @@
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="_RestoreDatabase.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>_RestoreDatabase.sql</FullPath>
         </FileNode>
         <FileNode Name="01_AssetFilesRequired.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>01_AssetFilesRequired.sql</FullPath>
         </FileNode>
         <FileNode Name="01_uspAssetFilesRequired.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>01_uspAssetFilesRequired.sql</FullPath>
         </FileNode>
         <FileNode Name="SQLQuery1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:ukgiocrsdev01.mgmt.computacenter.co.uk:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>ukgiocrsdev01.mgmt.computacenter.co.uk</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>SQLQuery1.sql</FullPath>
         </FileNode>
