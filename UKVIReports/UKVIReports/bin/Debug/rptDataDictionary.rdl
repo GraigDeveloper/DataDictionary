@@ -930,30 +930,6 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
                                 <BackgroundColor>#ffffff</BackgroundColor>
                               </Style>
                             </Tablix>
-                            <Subreport Name="Subreport3">
-                              <ReportName>rptDataDictionarySubCons</ReportName>
-                              <Parameters>
-                                <Parameter Name="TableName">
-                                  <Value>=Fields!TABLE_NAME.Value</Value>
-                                </Parameter>
-                                <Parameter Name="TableSchema">
-                                  <Value>=Fields!TABLE_SCHEMA.Value</Value>
-                                </Parameter>
-                                <Parameter Name="DatabaseName">
-                                  <Value>=Fields!DatabaseName.Value</Value>
-                                </Parameter>
-                              </Parameters>
-                              <Top>4.3796cm</Top>
-                              <Left>0.16256cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>34.72231cm</Width>
-                              <ZIndex>3</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                              </Style>
-                            </Subreport>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <RepeatWith>GroupLevel0</RepeatWith>
@@ -1368,6 +1344,7 @@ Fields!IsPrimaryKey.Value=false,"White")</BackgroundColor>
         <DataSetReference>
           <DataSetName>Schema</DataSetName>
           <ValueField>TABLE_SCHEMA</ValueField>
+          <LabelField>TABLE_SCHEMA</LabelField>
         </DataSetReference>
       </ValidValues>
       <MultiValue>true</MultiValue>
