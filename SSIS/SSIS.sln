@@ -3,29 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS", "SSIS\SSIS.dtproj", "{2C0CE629-0CB9-4902-8547-6E364B32EF1F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB056976-D461-4F77-83BE-7029E87A1F81}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SSIS", "SSIS\SSIS.dtproj", "{F8CB890F-0BC0-42A5-AAE4-646227A5A83E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2C0CE629-0CB9-4902-8547-6E364B32EF1F}.Development|Default.ActiveCfg = Development
-		{2C0CE629-0CB9-4902-8547-6E364B32EF1F}.Development|Default.Build.0 = Development
+		{F8CB890F-0BC0-42A5-AAE4-646227A5A83E}.Development|Default.ActiveCfg = Development
+		{F8CB890F-0BC0-42A5-AAE4-646227A5A83E}.Development|Default.Build.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {72C87765-D0DA-476E-B460-34B68950BE89}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://hplaptop003:8080/tfs/datadictionary
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = SSIS\\SSIS.dtproj
-		SccProjectName1 = SSIS
-		SccLocalPath1 = SSIS
 	EndGlobalSection
 EndGlobal
